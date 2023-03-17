@@ -1,109 +1,46 @@
 # Syroco Front End Engineering Challenge
 
-Welcome Candidate and thank you for taking the time to complete the Syroco take-home challenge for our frontend engineer position.
+This is a solution to the Syroco Front End Engineering Challenge. It is built with javascript and React.js. TailwindCSS is used for styling.
 
-You will have 2 days to complete the assignment. Once you have completed your solution, please reply with a link to a github repository and instructions on how to install / run the application.
+## Getting Started
 
-The goal of this challenge is to build out a computation options selector and launcher. Please clone this repository and submit it once you are finished.
+First install the dependencies:
 
-Here are the rules of this challenge.. you must:
+```bash
+npm install
+# or
+yarn install
+```
 
- 1) Build an application that displays a list of computation categories and options. Please follow the design in the wireframe below. Run `yarn start` to start the application.
- 2) Run `yarn backend` to start the server and get access to API methods such as `GET /api/computation-options`. Use the React `useEffect` hook to fetch the ballot data from the provided API, and save it to state by using the React `useState` hook.
- [useEffect Documentation](https://reactjs.org/docs/hooks-effect.html)
- [Fetch API Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
-[useState Documentation](https://reactjs.org/docs/hooks-state.html)
- 3) When you click on an option, we should highlight the option card and save the selections using the React `useState` hook. A user can only select one option per category, and we should be able to see all of their selections highlighted. The selected option card should follow the style guides below.
- 4) Make the layout responsive with at least one breakpoint (your choice as to how it looks on a smaller screen width).
- 5) Once the user is finished making their selections, they can click on a launch computation button that displays a results modal screen. A user can dismiss the modal by clicking on the close button (follow the wireframe below).
+Run the backend server:
 
-## Requirements:
- 1) All navigation should happen in the same page
- 2) Demonstrate use of React hooks
- 3) Demonstrate knowledge of component modularization
- 4) Utilize CSS to create the layout of the page. Add hover styles to the items the user is interacting with.
- 5) Create components as you feel is best suited for your solution
+```bash
+npm run backend
+# or
+yarn backend
+```
 
-![Wireframe](src/take-home-wire.png?raw=true "Wireframe")
-![Success Modal Wireframe](src/take-home-wire-completed.png?raw=true "Success Modal Wireframe")
+Then run the frontend server:
 
-## Bonuses
-1) Use TypeScript
-2) Make it pretty
-3) Make it accessible
-4) Add unit tests
-
-## Styling Guidelines
-
-- Use the "Roboto" Google font   
-- Use the following colors   
-	- Page background: - ![#0D2436](https://via.placeholder.com/15/0D2436/000000?text=+) `#0D2436`
-	- Default/normal font color: ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/000000?text=+) `#FFFFFF`
-  - Hover font color: ![#CCCCCC](https://via.placeholder.com/15/CCCCCC/000000?text=+) `#CCCCCC`
-	- Option card / launch computation button background: ![#009B86](https://via.placeholder.com/15/009B86/000000?text=+) `#009B86`
-  - Selected Option card: ![#009B86](https://via.placeholder.com/15/009B86/000000?text=+) `#009B86`
-  - Option card background hover / launch computation button background hover: ![#34AC9C](https://via.placeholder.com/15/#34AC9C/000000?text=+) `#34AC9C`
+```bash
+npm start
+# or
+yarn start
+```
 
 
-  Good luck and if you have questions, please reach out to us at remy.chabin@syro.co
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Available Scripts
+### Backend
 
-In the project directory, you can run:
+Only one route exists and serve  `GET http://localhost:8080/api/computation-options`  which returns the list of computation options.
 
-### `yarn start`
+It can be found in `api/index.js`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Frontend
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The frontend show the options with selectable cards, only one option for each category can be selected at a time.
 
-### `yarn backend`
+When the selection is done the "Launch computation" button can be clicked to show a modal with the selected options.
 
-Starts the server which allows the user to access the API.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The modal can be closed by clicking on the "Close" button or by clicking outside of the modal.
